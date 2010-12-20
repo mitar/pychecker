@@ -88,8 +88,9 @@ class TestCase(unittest.TestCase):
         # to help us
         if not os.path.exists(absexpectedfile):
             open(absexpectedfile, 'w').write(output)
+            print 'Generated non-existing output file', absexpectedfile
 
         expected = open(absexpectedfile).read()
 
-        diffStrings(expected, output, desc=relexpectedfile)
+        print 'returning', diffStrings(expected, output, desc=relexpectedfile)
 
