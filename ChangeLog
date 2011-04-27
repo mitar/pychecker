@@ -1,3 +1,10 @@
+2011-04-27  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	patch by: Arfrever Frehtes Taifersar Arahesis
+
+	* setup.py:
+	  Make sure we close the file so it gets written.
+
 2011-01-25  Thomas Vander Stichele  <thomas at apestaart dot org>
 
 	* pychecker/Stack.py:

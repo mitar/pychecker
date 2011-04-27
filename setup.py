@@ -221,7 +221,9 @@ def create_script(script_path, package_path):
          script_str = "%s %s %%*\n" % (sys.executable, checker_path)
       else:
          script_str = '#! /bin/sh\n\n%s %s "$@"\n' % (sys.executable, checker_path)
-      open(script_path, "w").write(script_str)
+      handle = open(script_path, "w")
+      handle.write(script_str)
+      handle.close()
    except Exception, e:
       print "ERROR: Unable to create %s: %s" % (script_path, e)
       raise e
