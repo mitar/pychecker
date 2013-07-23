@@ -176,7 +176,7 @@ else :
                 _warnings_cache[w] = 1
         return warnings
 
-    def __import__(name, globals=None, locals=None, fromlist=None):
+    def __import__(name, globals=None, locals=None, fromlist=None, level=None):
         if globals is None:
             globals = {}
         if locals is None:
@@ -185,7 +185,10 @@ else :
             fromlist = []
 
         check = not sys.modules.has_key(name) and name[:10] != 'pychecker.'
-        pymodule = _orig__import__(name, globals, locals, fromlist)
+        if level:
+            pymodule = _orig__import__(name, globals, locals, fromlist, level)
+        else:
+            pymodule = _orig__import__(name, globals, locals, fromlist)
         if check :
             try :
                 # FIXME: can we find a good moduleDir ?
